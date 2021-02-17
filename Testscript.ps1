@@ -1,2 +1,3 @@
-write-host "Dit is het github script"
-write-host "tweede nieuwe regel"
+write-host "Dit is het github script
+
+Nieuwe commit "
