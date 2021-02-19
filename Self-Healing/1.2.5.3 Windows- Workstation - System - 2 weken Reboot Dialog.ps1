@@ -22,7 +22,7 @@ $uiHash = [hashtable]::Synchronized(@{})
 
 
 Set-Location $(Split-Path $script:MyInvocation.MyCommand.Path)
-$Global:Path = $(Split-Path $script:MyInvocation.MyCommand.Path)
+#$Global:Path = $(Split-Path $script:MyInvocation.MyCommand.Path)
 $Global:ComputerName = $env:COMPUTERNAME
 
 
@@ -132,7 +132,7 @@ $buttonclicked = $true
     Invoke-Command -ScriptBlock $Button1Function
   })
 
-  if($Button2Text -eq $NULL) {
+  if($NULL -eq $Button2Text) {
   $uiHash.Button2.Visibility="Hidden"
   }
 $uiHash.Button2.Add_Click({
@@ -141,7 +141,7 @@ $buttonclicked = $true
   })
 
   $uiHash.Link.Add_Click({
-    start $uiHash.Link.NavigateUri.ToString()
+    Start-Process $uiHash.Link.NavigateUri.ToString()
 })
 
 $uiHash.Window.Add_Closed({
